@@ -42,4 +42,6 @@ struct RecvMsg chat_recv(int fd) {
     return tmp;
 }
 
+#define MAX_CLIENT 512
+
 #endif
