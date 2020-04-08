@@ -4,7 +4,6 @@
 	> Mail: 1927157164@qq.com
 	> Created Time: 2020年04月07日 星期二 23时19分41秒
  ************************************************************************/
-
 #include "../common/common.h"
 #include "../common/tcp_server.h"
 #include "../common/chatroom.h"
@@ -16,6 +15,7 @@ struct User{
     pthread_t tid;
     int fd;
 };
+
 
 char *conf = "./server.conf";
 
@@ -68,7 +68,7 @@ void *work(void *arg){
     struct RecvMsg rmsg;
     printf(GREEN"Login "NONE" : %s\n", client[sub].name);
     rmsg.msg.flag = 2;
-    sprintf(rmsg.msg.message, "你的好友 %s 上线了，和他打个招呼吧！", client[sub].name);
+    sprintf(rmsg.msg.message, "你的好友 %s 上线了，和他打个招呼吧!!!", client[sub].name);
     send_all_ex(rmsg.msg, sub);
     while (1) {
         rmsg = chat_recv(client_fd);
